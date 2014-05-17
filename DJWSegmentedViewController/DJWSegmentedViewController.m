@@ -9,41 +9,119 @@
 #import "DJWSegmentedViewController.h"
 
 @interface DJWSegmentedViewController ()
-
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+@property (nonatomic, assign) DJWSegmentedViewControllerControlPlacement placement;
+@property (nonatomic, assign, readwrite) NSUInteger currentViewControllerIndex;
 @end
 
 @implementation DJWSegmentedViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self = [super init]) {
+        self.placement = placement;
     }
     return self;
 }
 
-- (void)viewDidLoad
+#pragma mark - Public
+
+- (void)reload
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.segmentedControl removeAllSegments];
+
+    NSUInteger numberOfViewControllers = [self.dataSource numberOfViewControllers];
+    for (NSUInteger i = 0; i < numberOfViewControllers; i++) {
+        NSString *title = [self.dataSource DJWSegmentedViewController:self segmentedControlTitleForIndex:i];
+        [self.segmentedControl insertSegmentWithTitle:title atIndex:i animated:NO];
+    }
+    
+    [self.segmentedControl sizeToFit];
+    [self.segmentedControl setSelectedSegmentIndex:0];
+    
+    switch (self.placement) {
+        case DJWSegmentedViewControllerControlPlacementNavigationBar:
+        {
+            self.navigationItem.titleView = self.segmentedControl;
+            break;
+        }
+        case DJWSegmentedViewControllerControlPlacementToolbar:
+        {
+            [self.navigationController setToolbarHidden:NO];
+            UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+            self.toolbarItems = @[flexibleSpace,
+                                  [[UIBarButtonItem alloc] initWithCustomView:self.segmentedControl],
+                                  flexibleSpace];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Private
+
+- (void)addViewControllerViewAsViewAtIndex:(NSInteger)index
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self removeCurrentViewControllerView];
+    
+    UIViewController *viewController = [self.dataSource DJWSegmentedViewController:self viewControllerAtIndex:index];
+    if (!viewController) {
+        [[NSException exceptionWithName:@"View Controller is nil" reason:@"The view controller returned from DJWSegmentedViewController:viewControllerAtIndex is nil." userInfo:nil] raise];
+        return;
+    }
+    
+    [self addChildViewController:viewController];
+    [self.view addSubview:viewController.view];
+    [self didMoveToParentViewController:self];
+    
+    [self.delegate DJWSegmentedViewController:self didMoveToViewControllerAtIndex:index];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)removeCurrentViewControllerView
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (self.view.subviews.count == 0) {
+        return;
+    }
+    
+    UIViewController *currentViewController = [self.dataSource DJWSegmentedViewController:self viewControllerAtIndex:self.currentViewControllerIndex];
+    [currentViewController removeFromParentViewController];
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self didMoveToParentViewController:self];
 }
-*/
+
+#pragma mark - Target Action
+
+- (void)segmentedControlValueChanged:(UISegmentedControl *)sender
+{
+    NSInteger index = sender.selectedSegmentIndex;
+    [self addViewControllerViewAsViewAtIndex:index];
+}
+
+#pragma mark - Getters
+
+- (UISegmentedControl *)segmentedControl
+{
+    if (!_segmentedControl) {
+        _segmentedControl = [[UISegmentedControl alloc] initWithFrame:CGRectZero];
+        [_segmentedControl addTarget:self action:@selector(segmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _segmentedControl;
+}
+
+#pragma mark - Setters
+
+- (void)setCurrentViewControllerIndex:(NSUInteger)currentViewControllerIndex
+{
+    _currentViewControllerIndex = currentViewControllerIndex;
+    [self addViewControllerViewAsViewAtIndex:_currentViewControllerIndex];
+}
+
+- (void)setDataSource:(id<DJWSegmentedViewControllerDataSource>)dataSource
+{
+    _dataSource = dataSource;
+    [self reload];
+    self.currentViewControllerIndex = 0;
+}
 
 @end

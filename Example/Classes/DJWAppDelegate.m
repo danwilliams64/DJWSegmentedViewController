@@ -7,6 +7,12 @@
 //
 
 #import "DJWAppDelegate.h"
+#import "DJWSegmentedViewController.h"
+#import "TestViewController.h"
+
+@interface DJWAppDelegate() <DJWSegmentedViewControllerDataSource, DJWSegmentedViewControllerDelegate>
+
+@end
 
 @implementation DJWAppDelegate
 
@@ -14,9 +20,65 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    DJWSegmentedViewController *viewController = [[DJWSegmentedViewController alloc] initWithControlPlacement:DJWSegmentedViewControllerControlPlacementNavigationBar];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+    viewController.dataSource = self;
+
+    self.window.rootViewController = nav;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (NSUInteger)numberOfViewControllers
+{
+    return 3;
+}
+
+- (UIViewController *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController viewControllerAtIndex:(NSUInteger)index
+{
+    TestViewController *viewController = [TestViewController new];
+    switch (index) {
+        case 0:
+            viewController.view.backgroundColor = [UIColor redColor];
+            viewController.string = @"One";
+            break;
+        case 1:
+            viewController.view.backgroundColor = [UIColor blueColor];
+            viewController.string = @"Two";
+            break;
+        case 2:
+            viewController.view.backgroundColor = [UIColor greenColor];
+            viewController.string = @"Three";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return viewController;
+}
+
+- (NSString *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController segmentedControlTitleForIndex:(NSUInteger)index
+{
+    switch (index) {
+        case 0:
+            return @"First";
+            break;
+        case 1:
+            return @"Second";
+            break;
+        case 2:
+            return @"Third";
+            break;
+            
+        default:
+            return @"";
+            break;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

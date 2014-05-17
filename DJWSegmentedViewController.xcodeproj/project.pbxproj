@@ -16,10 +16,10 @@
 		37012EF219278C0100CFAEC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37012EF019278C0100CFAEC5 /* InfoPlist.strings */; };
 		37012EF419278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012EF319278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m */; };
 		37012F0019278D2900CFAEC5 /* DJWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012EFF19278D2900CFAEC5 /* DJWAppDelegate.m */; };
-		37012F0319278D5900CFAEC5 /* DJWSegmentedViewController-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37012F0119278D5900CFAEC5 /* DJWSegmentedViewController-Info.plist */; };
 		37012F0419278D5900CFAEC5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37012F0219278D5900CFAEC5 /* Images.xcassets */; };
 		37012F0719278D6200CFAEC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012F0619278D6200CFAEC5 /* main.m */; };
 		37012F0A19278E1800CFAEC5 /* DJWSegmentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012F0919278E1800CFAEC5 /* DJWSegmentedViewController.m */; };
+		37012F101927BDD900CFAEC5 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012F0F1927BDD900CFAEC5 /* TestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +50,8 @@
 		37012F0619278D6200CFAEC5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Example/Other Sources/main.m"; sourceTree = SOURCE_ROOT; };
 		37012F0819278E1800CFAEC5 /* DJWSegmentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJWSegmentedViewController.h; sourceTree = "<group>"; };
 		37012F0919278E1800CFAEC5 /* DJWSegmentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJWSegmentedViewController.m; sourceTree = "<group>"; };
+		37012F0E1927BDD900CFAEC5 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestViewController.h; path = Example/Classes/TestViewController.h; sourceTree = SOURCE_ROOT; };
+		37012F0F1927BDD900CFAEC5 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestViewController.m; path = Example/Classes/TestViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,8 @@
 			children = (
 				37012EFE19278D2900CFAEC5 /* DJWAppDelegate.h */,
 				37012EFF19278D2900CFAEC5 /* DJWAppDelegate.m */,
+				37012F0E1927BDD900CFAEC5 /* TestViewController.h */,
+				37012F0F1927BDD900CFAEC5 /* TestViewController.m */,
 			);
 			name = Example;
 			path = DJWSegmentedViewController;
@@ -233,7 +237,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37012F0319278D5900CFAEC5 /* DJWSegmentedViewController-Info.plist in Resources */,
 				37012F0419278D5900CFAEC5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +259,7 @@
 				37012F0A19278E1800CFAEC5 /* DJWSegmentedViewController.m in Sources */,
 				37012F0719278D6200CFAEC5 /* main.m in Sources */,
 				37012F0019278D2900CFAEC5 /* DJWAppDelegate.m in Sources */,
+				37012F101927BDD900CFAEC5 /* TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +369,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/DJWSegmentedViewController-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -376,6 +381,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/DJWSegmentedViewController-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
