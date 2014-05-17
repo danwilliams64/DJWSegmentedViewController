@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37012ECF19278C0100CFAEC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ECE19278C0100CFAEC5 /* Foundation.framework */; };
+		37012ED119278C0100CFAEC5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ED019278C0100CFAEC5 /* CoreGraphics.framework */; };
+		37012ED319278C0100CFAEC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ED219278C0100CFAEC5 /* UIKit.framework */; };
+		37012ED919278C0100CFAEC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37012ED719278C0100CFAEC5 /* InfoPlist.strings */; };
+		37012EDB19278C0100CFAEC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012EDA19278C0100CFAEC5 /* main.m */; };
+		37012EDF19278C0100CFAEC5 /* DJWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012EDE19278C0100CFAEC5 /* DJWAppDelegate.m */; };
+		37012EE119278C0100CFAEC5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37012EE019278C0100CFAEC5 /* Images.xcassets */; };
+		37012EE819278C0100CFAEC5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012EE719278C0100CFAEC5 /* XCTest.framework */; };
+		37012EE919278C0100CFAEC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ECE19278C0100CFAEC5 /* Foundation.framework */; };
+		37012EEA19278C0100CFAEC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ED219278C0100CFAEC5 /* UIKit.framework */; };
+		37012EF219278C0100CFAEC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37012EF019278C0100CFAEC5 /* InfoPlist.strings */; };
+		37012EF419278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012EF319278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		37012EEB19278C0100CFAEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37012EC319278C0100CFAEC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37012ECA19278C0100CFAEC5;
+			remoteInfo = DJWSegmentedViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		37012ECB19278C0100CFAEC5 /* DJWSegmentedViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJWSegmentedViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37012ECE19278C0100CFAEC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		37012ED019278C0100CFAEC5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		37012ED219278C0100CFAEC5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		37012ED619278C0100CFAEC5 /* DJWSegmentedViewController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DJWSegmentedViewController-Info.plist"; sourceTree = "<group>"; };
+		37012ED819278C0100CFAEC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		37012EDA19278C0100CFAEC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		37012EDC19278C0100CFAEC5 /* DJWSegmentedViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DJWSegmentedViewController-Prefix.pch"; sourceTree = "<group>"; };
+		37012EDD19278C0100CFAEC5 /* DJWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJWAppDelegate.h; sourceTree = "<group>"; };
+		37012EDE19278C0100CFAEC5 /* DJWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJWAppDelegate.m; sourceTree = "<group>"; };
+		37012EE019278C0100CFAEC5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		37012EE619278C0100CFAEC5 /* DJWSegmentedViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DJWSegmentedViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37012EE719278C0100CFAEC5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		37012EEF19278C0100CFAEC5 /* DJWSegmentedViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DJWSegmentedViewControllerTests-Info.plist"; sourceTree = "<group>"; };
+		37012EF119278C0100CFAEC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		37012EF319278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJWSegmentedViewControllerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37012EC819278C0100CFAEC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37012ED119278C0100CFAEC5 /* CoreGraphics.framework in Frameworks */,
+				37012ED319278C0100CFAEC5 /* UIKit.framework in Frameworks */,
+				37012ECF19278C0100CFAEC5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37012EE319278C0100CFAEC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37012EE819278C0100CFAEC5 /* XCTest.framework in Frameworks */,
+				37012EEA19278C0100CFAEC5 /* UIKit.framework in Frameworks */,
+				37012EE919278C0100CFAEC5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37012EC219278C0100CFAEC5 = {
+			isa = PBXGroup;
+			children = (
+				37012ED419278C0100CFAEC5 /* DJWSegmentedViewController */,
+				37012EED19278C0100CFAEC5 /* DJWSegmentedViewControllerTests */,
+				37012ECD19278C0100CFAEC5 /* Frameworks */,
+				37012ECC19278C0100CFAEC5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		37012ECC19278C0100CFAEC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37012ECB19278C0100CFAEC5 /* DJWSegmentedViewController.app */,
+				37012EE619278C0100CFAEC5 /* DJWSegmentedViewControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37012ECD19278C0100CFAEC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37012ECE19278C0100CFAEC5 /* Foundation.framework */,
+				37012ED019278C0100CFAEC5 /* CoreGraphics.framework */,
+				37012ED219278C0100CFAEC5 /* UIKit.framework */,
+				37012EE719278C0100CFAEC5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37012ED419278C0100CFAEC5 /* DJWSegmentedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				37012EDD19278C0100CFAEC5 /* DJWAppDelegate.h */,
+				37012EDE19278C0100CFAEC5 /* DJWAppDelegate.m */,
+				37012EE019278C0100CFAEC5 /* Images.xcassets */,
+				37012ED519278C0100CFAEC5 /* Supporting Files */,
+			);
+			path = DJWSegmentedViewController;
+			sourceTree = "<group>";
+		};
+		37012ED519278C0100CFAEC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				37012ED619278C0100CFAEC5 /* DJWSegmentedViewController-Info.plist */,
+				37012ED719278C0100CFAEC5 /* InfoPlist.strings */,
+				37012EDA19278C0100CFAEC5 /* main.m */,
+				37012EDC19278C0100CFAEC5 /* DJWSegmentedViewController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		37012EED19278C0100CFAEC5 /* DJWSegmentedViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				37012EF319278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m */,
+				37012EEE19278C0100CFAEC5 /* Supporting Files */,
+			);
+			path = DJWSegmentedViewControllerTests;
+			sourceTree = "<group>";
+		};
+		37012EEE19278C0100CFAEC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				37012EEF19278C0100CFAEC5 /* DJWSegmentedViewControllerTests-Info.plist */,
+				37012EF019278C0100CFAEC5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37012ECA19278C0100CFAEC5 /* DJWSegmentedViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37012EF719278C0100CFAEC5 /* Build configuration list for PBXNativeTarget "DJWSegmentedViewController" */;
+			buildPhases = (
+				37012EC719278C0100CFAEC5 /* Sources */,
+				37012EC819278C0100CFAEC5 /* Frameworks */,
+				37012EC919278C0100CFAEC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DJWSegmentedViewController;
+			productName = DJWSegmentedViewController;
+			productReference = 37012ECB19278C0100CFAEC5 /* DJWSegmentedViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		37012EE519278C0100CFAEC5 /* DJWSegmentedViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37012EFA19278C0100CFAEC5 /* Build configuration list for PBXNativeTarget "DJWSegmentedViewControllerTests" */;
+			buildPhases = (
+				37012EE219278C0100CFAEC5 /* Sources */,
+				37012EE319278C0100CFAEC5 /* Frameworks */,
+				37012EE419278C0100CFAEC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37012EEC19278C0100CFAEC5 /* PBXTargetDependency */,
+			);
+			name = DJWSegmentedViewControllerTests;
+			productName = DJWSegmentedViewControllerTests;
+			productReference = 37012EE619278C0100CFAEC5 /* DJWSegmentedViewControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37012EC319278C0100CFAEC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DJW;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Dan Williams";
+				TargetAttributes = {
+					37012EE519278C0100CFAEC5 = {
+						TestTargetID = 37012ECA19278C0100CFAEC5;
+					};
+				};
+			};
+			buildConfigurationList = 37012EC619278C0100CFAEC5 /* Build configuration list for PBXProject "DJWSegmentedViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 37012EC219278C0100CFAEC5;
+			productRefGroup = 37012ECC19278C0100CFAEC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37012ECA19278C0100CFAEC5 /* DJWSegmentedViewController */,
+				37012EE519278C0100CFAEC5 /* DJWSegmentedViewControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37012EC919278C0100CFAEC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37012ED919278C0100CFAEC5 /* InfoPlist.strings in Resources */,
+				37012EE119278C0100CFAEC5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37012EE419278C0100CFAEC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37012EF219278C0100CFAEC5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37012EC719278C0100CFAEC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37012EDF19278C0100CFAEC5 /* DJWAppDelegate.m in Sources */,
+				37012EDB19278C0100CFAEC5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37012EE219278C0100CFAEC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37012EF419278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		37012EEC19278C0100CFAEC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37012ECA19278C0100CFAEC5 /* DJWSegmentedViewController */;
+			targetProxy = 37012EEB19278C0100CFAEC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		37012ED719278C0100CFAEC5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37012ED819278C0100CFAEC5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		37012EF019278C0100CFAEC5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37012EF119278C0100CFAEC5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		37012EF519278C0100CFAEC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		37012EF619278C0100CFAEC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		37012EF819278C0100CFAEC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DJWSegmentedViewController/DJWSegmentedViewController-Prefix.pch";
+				INFOPLIST_FILE = "DJWSegmentedViewController/DJWSegmentedViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		37012EF919278C0100CFAEC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DJWSegmentedViewController/DJWSegmentedViewController-Prefix.pch";
+				INFOPLIST_FILE = "DJWSegmentedViewController/DJWSegmentedViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		37012EFB19278C0100CFAEC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DJWSegmentedViewController.app/DJWSegmentedViewController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DJWSegmentedViewController/DJWSegmentedViewController-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DJWSegmentedViewControllerTests/DJWSegmentedViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		37012EFC19278C0100CFAEC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DJWSegmentedViewController.app/DJWSegmentedViewController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DJWSegmentedViewController/DJWSegmentedViewController-Prefix.pch";
+				INFOPLIST_FILE = "DJWSegmentedViewControllerTests/DJWSegmentedViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37012EC619278C0100CFAEC5 /* Build configuration list for PBXProject "DJWSegmentedViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37012EF519278C0100CFAEC5 /* Debug */,
+				37012EF619278C0100CFAEC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37012EF719278C0100CFAEC5 /* Build configuration list for PBXNativeTarget "DJWSegmentedViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37012EF819278C0100CFAEC5 /* Debug */,
+				37012EF919278C0100CFAEC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		37012EFA19278C0100CFAEC5 /* Build configuration list for PBXNativeTarget "DJWSegmentedViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37012EFB19278C0100CFAEC5 /* Debug */,
+				37012EFC19278C0100CFAEC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 37012EC319278C0100CFAEC5 /* Project object */;
+}
