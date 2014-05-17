@@ -10,15 +10,16 @@
 		37012ECF19278C0100CFAEC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ECE19278C0100CFAEC5 /* Foundation.framework */; };
 		37012ED119278C0100CFAEC5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ED019278C0100CFAEC5 /* CoreGraphics.framework */; };
 		37012ED319278C0100CFAEC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ED219278C0100CFAEC5 /* UIKit.framework */; };
-		37012ED919278C0100CFAEC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37012ED719278C0100CFAEC5 /* InfoPlist.strings */; };
-		37012EDB19278C0100CFAEC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012EDA19278C0100CFAEC5 /* main.m */; };
-		37012EDF19278C0100CFAEC5 /* DJWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012EDE19278C0100CFAEC5 /* DJWAppDelegate.m */; };
-		37012EE119278C0100CFAEC5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37012EE019278C0100CFAEC5 /* Images.xcassets */; };
 		37012EE819278C0100CFAEC5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012EE719278C0100CFAEC5 /* XCTest.framework */; };
 		37012EE919278C0100CFAEC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ECE19278C0100CFAEC5 /* Foundation.framework */; };
 		37012EEA19278C0100CFAEC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37012ED219278C0100CFAEC5 /* UIKit.framework */; };
 		37012EF219278C0100CFAEC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37012EF019278C0100CFAEC5 /* InfoPlist.strings */; };
 		37012EF419278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012EF319278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m */; };
+		37012F0019278D2900CFAEC5 /* DJWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012EFF19278D2900CFAEC5 /* DJWAppDelegate.m */; };
+		37012F0319278D5900CFAEC5 /* DJWSegmentedViewController-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37012F0119278D5900CFAEC5 /* DJWSegmentedViewController-Info.plist */; };
+		37012F0419278D5900CFAEC5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37012F0219278D5900CFAEC5 /* Images.xcassets */; };
+		37012F0719278D6200CFAEC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012F0619278D6200CFAEC5 /* main.m */; };
+		37012F0A19278E1800CFAEC5 /* DJWSegmentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37012F0919278E1800CFAEC5 /* DJWSegmentedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,18 +37,19 @@
 		37012ECE19278C0100CFAEC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37012ED019278C0100CFAEC5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		37012ED219278C0100CFAEC5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		37012ED619278C0100CFAEC5 /* DJWSegmentedViewController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DJWSegmentedViewController-Info.plist"; sourceTree = "<group>"; };
-		37012ED819278C0100CFAEC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		37012EDA19278C0100CFAEC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		37012EDC19278C0100CFAEC5 /* DJWSegmentedViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DJWSegmentedViewController-Prefix.pch"; sourceTree = "<group>"; };
-		37012EDD19278C0100CFAEC5 /* DJWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJWAppDelegate.h; sourceTree = "<group>"; };
-		37012EDE19278C0100CFAEC5 /* DJWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJWAppDelegate.m; sourceTree = "<group>"; };
-		37012EE019278C0100CFAEC5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		37012EE619278C0100CFAEC5 /* DJWSegmentedViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DJWSegmentedViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37012EE719278C0100CFAEC5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		37012EEF19278C0100CFAEC5 /* DJWSegmentedViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DJWSegmentedViewControllerTests-Info.plist"; sourceTree = "<group>"; };
 		37012EF119278C0100CFAEC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		37012EF319278C0100CFAEC5 /* DJWSegmentedViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJWSegmentedViewControllerTests.m; sourceTree = "<group>"; };
+		37012EFE19278D2900CFAEC5 /* DJWAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DJWAppDelegate.h; path = Example/Classes/DJWAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		37012EFF19278D2900CFAEC5 /* DJWAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DJWAppDelegate.m; path = Example/Classes/DJWAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		37012F0119278D5900CFAEC5 /* DJWSegmentedViewController-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DJWSegmentedViewController-Info.plist"; path = "Example/Resources/DJWSegmentedViewController-Info.plist"; sourceTree = SOURCE_ROOT; };
+		37012F0219278D5900CFAEC5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Example/Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		37012F0519278D6200CFAEC5 /* DJWSegmentedViewController-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DJWSegmentedViewController-Prefix.pch"; path = "Example/Other Sources/DJWSegmentedViewController-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		37012F0619278D6200CFAEC5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Example/Other Sources/main.m"; sourceTree = SOURCE_ROOT; };
+		37012F0819278E1800CFAEC5 /* DJWSegmentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJWSegmentedViewController.h; sourceTree = "<group>"; };
+		37012F0919278E1800CFAEC5 /* DJWSegmentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJWSegmentedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				37012ED419278C0100CFAEC5 /* DJWSegmentedViewController */,
+				37012EFD19278D0C00CFAEC5 /* Example */,
+				37012ED519278C0100CFAEC5 /* Supporting Files */,
 				37012EED19278C0100CFAEC5 /* DJWSegmentedViewControllerTests */,
 				37012ECD19278C0100CFAEC5 /* Frameworks */,
 				37012ECC19278C0100CFAEC5 /* Products */,
@@ -107,10 +111,8 @@
 		37012ED419278C0100CFAEC5 /* DJWSegmentedViewController */ = {
 			isa = PBXGroup;
 			children = (
-				37012EDD19278C0100CFAEC5 /* DJWAppDelegate.h */,
-				37012EDE19278C0100CFAEC5 /* DJWAppDelegate.m */,
-				37012EE019278C0100CFAEC5 /* Images.xcassets */,
-				37012ED519278C0100CFAEC5 /* Supporting Files */,
+				37012F0819278E1800CFAEC5 /* DJWSegmentedViewController.h */,
+				37012F0919278E1800CFAEC5 /* DJWSegmentedViewController.m */,
 			);
 			path = DJWSegmentedViewController;
 			sourceTree = "<group>";
@@ -118,12 +120,13 @@
 		37012ED519278C0100CFAEC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				37012ED619278C0100CFAEC5 /* DJWSegmentedViewController-Info.plist */,
-				37012ED719278C0100CFAEC5 /* InfoPlist.strings */,
-				37012EDA19278C0100CFAEC5 /* main.m */,
-				37012EDC19278C0100CFAEC5 /* DJWSegmentedViewController-Prefix.pch */,
+				37012F0519278D6200CFAEC5 /* DJWSegmentedViewController-Prefix.pch */,
+				37012F0619278D6200CFAEC5 /* main.m */,
+				37012F0119278D5900CFAEC5 /* DJWSegmentedViewController-Info.plist */,
+				37012F0219278D5900CFAEC5 /* Images.xcassets */,
 			);
 			name = "Supporting Files";
+			path = DJWSegmentedViewController;
 			sourceTree = "<group>";
 		};
 		37012EED19278C0100CFAEC5 /* DJWSegmentedViewControllerTests */ = {
@@ -142,6 +145,16 @@
 				37012EF019278C0100CFAEC5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		37012EFD19278D0C00CFAEC5 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				37012EFE19278D2900CFAEC5 /* DJWAppDelegate.h */,
+				37012EFF19278D2900CFAEC5 /* DJWAppDelegate.m */,
+			);
+			name = Example;
+			path = DJWSegmentedViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +233,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37012ED919278C0100CFAEC5 /* InfoPlist.strings in Resources */,
-				37012EE119278C0100CFAEC5 /* Images.xcassets in Resources */,
+				37012F0319278D5900CFAEC5 /* DJWSegmentedViewController-Info.plist in Resources */,
+				37012F0419278D5900CFAEC5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +253,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37012EDF19278C0100CFAEC5 /* DJWAppDelegate.m in Sources */,
-				37012EDB19278C0100CFAEC5 /* main.m in Sources */,
+				37012F0A19278E1800CFAEC5 /* DJWSegmentedViewController.m in Sources */,
+				37012F0719278D6200CFAEC5 /* main.m in Sources */,
+				37012F0019278D2900CFAEC5 /* DJWAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,14 +278,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		37012ED719278C0100CFAEC5 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				37012ED819278C0100CFAEC5 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		37012EF019278C0100CFAEC5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -359,8 +365,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DJWSegmentedViewController/DJWSegmentedViewController-Prefix.pch";
-				INFOPLIST_FILE = "DJWSegmentedViewController/DJWSegmentedViewController-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -372,8 +376,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DJWSegmentedViewController/DJWSegmentedViewController-Prefix.pch";
-				INFOPLIST_FILE = "DJWSegmentedViewController/DJWSegmentedViewController-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -389,12 +391,10 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DJWSegmentedViewController/DJWSegmentedViewController-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "DJWSegmentedViewControllerTests/DJWSegmentedViewControllerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -411,8 +411,6 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DJWSegmentedViewController/DJWSegmentedViewController-Prefix.pch";
-				INFOPLIST_FILE = "DJWSegmentedViewControllerTests/DJWSegmentedViewControllerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -438,6 +436,7 @@
 				37012EF919278C0100CFAEC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37012EFA19278C0100CFAEC5 /* Build configuration list for PBXNativeTarget "DJWSegmentedViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +445,7 @@
 				37012EFC19278C0100CFAEC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
