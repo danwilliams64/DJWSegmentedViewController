@@ -30,6 +30,7 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
         _placement = placement;
         _animatedViewControllerTransitionAnimationEnabled = YES;
         _swipeGestureEnabled = NO;
+        self.view.backgroundColor = [UIColor blackColor];
     }
     return self;
 }
@@ -83,7 +84,7 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 
 - (void)addViewControllerViewAsViewAtIndex:(NSInteger)index
 {
-    UIView *previousSnapShot = [self.view.subviews.firstObject snapshotViewAfterScreenUpdates:NO];
+    UIView *previousSnapShot = [[self.view.subviews firstObject] snapshotViewAfterScreenUpdates:NO];
     [self removePreviousViewController];
     [self.view addSubview:previousSnapShot];
     
@@ -120,7 +121,7 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 - (void)animateViewsControllersForInitialDisplay:(NSArray *)views inDirection:(DJWSegmentedViewControllerTransitionDirection)direction withXOffset:(CGFloat)xOffset withCompletionCallback:(void(^)())callback;
 {
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
-        [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:self.animatedViewControllerTransitionDuration delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             CGFloat originX = (direction == DJWSegmentedViewControllerTransitionDirectionLeft) ? view.frame.origin.x - xOffset : view.frame.origin.x + xOffset;
             view.frame = CGRectMake(originX, view.frame.origin.y, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame));
         } completion:^(BOOL finished) {
@@ -151,6 +152,20 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     [self didMoveToParentViewController:self];
 }
 
+- (void)bounceViewControllerViewInDirection:(DJWSegmentedViewControllerTransitionDirection)direction
+{
+    UIView *view = [self.view.subviews firstObject];
+    CGFloat offset = (direction == DJWSegmentedViewControllerTransitionDirectionLeft) ? -25.0 : 25.0;
+    
+    [UIView animateWithDuration:0.10 delay:0 options:kNilOptions animations:^{
+        view.frame = CGRectOffset(view.frame, -offset, 0);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.4 options:kNilOptions animations:^{
+            view.frame = CGRectOffset(view.frame, offset, 0);
+        } completion:nil];
+    }];
+}
+
 #pragma mark - Target Action
 
 - (void)handleSwipeGestureRight:(UISwipeGestureRecognizer *)sender
@@ -158,6 +173,8 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     if (_currentViewControllerIndex - 1 != -1) {
         [self.segmentedControl setSelectedSegmentIndex:_currentViewControllerIndex - 1];
         [self.segmentedControl sendActionsForControlEvents:UIControlEventValueChanged];
+    } else {
+        [self bounceViewControllerViewInDirection:DJWSegmentedViewControllerTransitionDirectionLeft];
     }
 }
 
@@ -166,6 +183,8 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     if (_currentViewControllerIndex + 1 != self.segmentedControl.numberOfSegments) {
         [self.segmentedControl setSelectedSegmentIndex:_currentViewControllerIndex + 1];
         [self.segmentedControl sendActionsForControlEvents:UIControlEventValueChanged];
+    } else {
+        [self bounceViewControllerViewInDirection:DJWSegmentedViewControllerTransitionDirectionRight];
     }
 }
 
@@ -185,6 +204,14 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
         [_segmentedControl addTarget:self action:@selector(segmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
     return _segmentedControl;
+}
+
+- (NSTimeInterval)animatedViewControllerTransitionDuration
+{
+    if (!_animatedViewControllerTransitionDuration) {
+        _animatedViewControllerTransitionDuration = 0.6;
+    }
+    return _animatedViewControllerTransitionDuration;
 }
 
 #pragma mark - Setters
