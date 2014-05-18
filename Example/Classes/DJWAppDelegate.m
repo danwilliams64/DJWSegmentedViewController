@@ -23,11 +23,10 @@
     
     DJWSegmentedViewController *viewController = [[DJWSegmentedViewController alloc] initWithControlPlacement:DJWSegmentedViewControllerControlPlacementNavigationBar];
     viewController.swipeGestureEnabled = YES;
+    viewController.dataSource = self;
     viewController.segmentedControl.tintColor = [UIColor redColor];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
-    viewController.dataSource = self;
-    [viewController.segmentedControl setWidth:100.0 forSegmentAtIndex:0];
 
     self.window.rootViewController = nav;
     self.window.backgroundColor = [UIColor whiteColor];

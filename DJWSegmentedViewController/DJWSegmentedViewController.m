@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 - (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement
 {
     if (self = [super init]) {
-        self.placement = placement;
+        _placement = placement;
         _animatedViewControllerTransitionAnimationEnabled = YES;
         _swipeGestureEnabled = NO;
     }
@@ -57,7 +57,6 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
         }
         case DJWSegmentedViewControllerControlPlacementToolbar:
         {
-            [self.navigationController setToolbarHidden:NO];
             UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
             self.toolbarItems = @[flexibleSpace,
                                   [[UIBarButtonItem alloc] initWithCustomView:self.segmentedControl],
@@ -66,6 +65,17 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
         }
         default:
             break;
+    }
+}
+
+#pragma mark - View Controller Lifecycle
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (self.placement == DJWSegmentedViewControllerControlPlacementToolbar) {
+        [self.navigationController setToolbarHidden:NO];
     }
 }
 

@@ -7,9 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "DJWSegmentedViewController.h"
 
-@interface DJWSegmentedViewControllerTests : XCTestCase
+@interface DJWSegmentedViewControllerTests : XCTestCase <DJWSegmentedViewControllerDataSource, DJWSegmentedViewControllerDelegate>
 
+@property (nonatomic, strong) DJWSegmentedViewController *segmentedViewController;
 @end
 
 @implementation DJWSegmentedViewControllerTests
@@ -26,9 +28,14 @@
     [super tearDown];
 }
 
-- (void)testExample
+
+
+- (void)testSegmentedControlAddedToNavigationBar
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    self.segmentedViewController = [[DJWSegmentedViewController alloc] initWithControlPlacement:DJWSegmentedViewControllerControlPlacementNavigationBar];
+    self.segmentedViewController.dataSource = self;
+    self.segmentedViewController.delegate = self;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.segmentedViewController];
 }
 
 @end
