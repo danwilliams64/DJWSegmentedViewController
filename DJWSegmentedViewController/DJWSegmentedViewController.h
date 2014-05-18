@@ -15,7 +15,7 @@
 /**
  *  The number of viewControllers the view is responsible for managing.
  */
-- (NSUInteger)numberOfViewControllers;
+- (NSInteger)numberOfViewControllers;
 
 /**
  *  Supply the DJWSegmentedViewController instance with a view Controller for display, at the given index.
@@ -25,7 +25,7 @@
  *
  *  @return The view controller for display.
  */
-- (UIViewController *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController viewControllerAtIndex:(NSUInteger)index;
+- (UIViewController *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController viewControllerAtIndex:(NSInteger)index;
 
 /**
  *  Supply the DJWSegmentedViewController instance with a title for display in the segmented control.
@@ -35,7 +35,7 @@
  *
  *  @return The title for display on the segmented control.
  */
-- (NSString *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController segmentedControlTitleForIndex:(NSUInteger)index;
+- (NSString *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController segmentedControlTitleForIndex:(NSInteger)index;
 
 @end
 
@@ -47,7 +47,7 @@
  *  @param segmentedViewController The DJWSegmentedViewController
  *  @param newIndex                Index of the viewController now being shown.
  */
-- (void)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController didMoveToViewControllerAtIndex:(NSUInteger)newIndex;
+- (void)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController didMoveToViewControllerAtIndex:(NSInteger)newIndex;
 
 @end
 
@@ -57,16 +57,22 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
     DJWSegmentedViewControllerControlPlacementToolbar
 };
 
-
 @interface DJWSegmentedViewController : UIViewController
+
+#pragma mark - Properties
 
 @property (nonatomic, weak) id <DJWSegmentedViewControllerDataSource> dataSource;
 @property (nonatomic, weak) id <DJWSegmentedViewControllerDelegate> delegate;
 
 /**
+ *  Access to the segmentedControl to provide custom styling. Not set until a dataSource is set, and the number of segments is greater than 0. (read-only).
+ */
+@property (nonatomic, strong, readonly) UISegmentedControl *segmentedControl;
+
+/**
  *  The displayed view controller's index.
  */
-@property (nonatomic, assign, readonly) NSUInteger currentViewControllerIndex;
+@property (nonatomic, assign, readonly) NSInteger currentViewControllerIndex;
 /**
  *  Enables a swipe gesture to switch between view controllers. Defaults to `NO`.
  */
@@ -75,6 +81,14 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
  *  Enables the viewController transition animation. Defaults to `YES`.
  */
 @property (nonatomic, assign) BOOL animatedViewControllerTransitionAnimationEnabled;
+
+/**
+ *  The duration that the animation takes to complete. Defaults to `0.6`.
+ */
+@property (nonatomic, assign) NSTimeInterval animatedViewControllerTransitionDuration;
+
+
+#pragma mark - Instance Methods
 
 /**
  *  Instantiates a new instance of DJWSegmentedViewController with the specified segmented control placement. The instance should be displayed within a Navigation Controller.

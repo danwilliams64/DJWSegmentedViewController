@@ -14,12 +14,12 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 };
 
 @interface DJWSegmentedViewController ()
-@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+@property (nonatomic, strong, readwrite) UISegmentedControl *segmentedControl;
 @property (nonatomic, assign) DJWSegmentedViewControllerControlPlacement placement;
-@property (nonatomic, assign, readwrite) NSUInteger currentViewControllerIndex;
-@property (nonatomic, assign) NSUInteger previousViewControllerIndex;
-@property (nonatomic, strong) UISwipeGestureRecognizer *swipeGestureRecogniserLeft;
-@property (nonatomic, strong) UISwipeGestureRecognizer *swipeGestureRecogniserRight;
+@property (nonatomic, assign, readwrite) NSInteger currentViewControllerIndex;
+@property (nonatomic, assign) NSInteger previousViewControllerIndex;
+@property (nonatomic, strong) UISwipeGestureRecognizer *swipeGestureRecognizerLeft;
+@property (nonatomic, strong) UISwipeGestureRecognizer *swipeGestureRecognizerRight;
 @end
 
 @implementation DJWSegmentedViewController
@@ -28,12 +28,8 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 {
     if (self = [super init]) {
         self.placement = placement;
-        _swipeGestureEnabled = YES;
         _animatedViewControllerTransitionAnimationEnabled = YES;
-        _swipeGestureRecogniserLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-        _swipeGestureRecogniserLeft.direction = UISwipeGestureRecognizerDirectionLeft;
-        _swipeGestureRecogniserRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-        _swipeGestureRecogniserRight.direction = UISwipeGestureRecognizerDirectionRight;
+        _swipeGestureEnabled = NO;
     }
     return self;
 }
@@ -44,8 +40,8 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 {
     [self.segmentedControl removeAllSegments];
 
-    NSUInteger numberOfViewControllers = [self.dataSource numberOfViewControllers];
-    for (NSUInteger i = 0; i < numberOfViewControllers; i++) {
+    NSInteger numberOfViewControllers = [self.dataSource numberOfViewControllers];
+    for (NSInteger i = 0; i < numberOfViewControllers; i++) {
         NSString *title = [self.dataSource DJWSegmentedViewController:self segmentedControlTitleForIndex:i];
         [self.segmentedControl insertSegmentWithTitle:title atIndex:i animated:NO];
     }
@@ -75,9 +71,6 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 
 #pragma mark - Private
 
-
-
-
 - (void)addViewControllerViewAsViewAtIndex:(NSInteger)index
 {
     UIView *previousSnapShot = [self.view.subviews.firstObject snapshotViewAfterScreenUpdates:NO];
@@ -97,6 +90,8 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     CGRect startFrame = CGRectOffset(viewControllerView.frame, (direction == DJWSegmentedViewControllerTransitionDirectionLeft) ? CGRectGetWidth(viewControllerView.frame) : -CGRectGetWidth(viewControllerView.frame), 0);
     viewControllerView.frame = startFrame;
     [self.view addSubview:viewControllerView];
+    [self addSwipeGestureRecognizersToView:viewControllerView];
+
     [self didMoveToParentViewController:self];
     
     if (!previousSnapShot || !self.animatedViewControllerTransitionAnimationEnabled) {
@@ -126,6 +121,14 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     }];
 }
 
+- (void)addSwipeGestureRecognizersToView:(UIView *)view
+{
+    if (self.isSwipeGestureEnabled) {
+        [view addGestureRecognizer:_swipeGestureRecognizerLeft];
+        [view addGestureRecognizer:_swipeGestureRecognizerRight];
+    }
+}
+
 - (void)removePreviousViewController
 {
     if (self.view.subviews.count == 0) {
@@ -134,29 +137,25 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     
     UIViewController *currentViewController = [self.dataSource DJWSegmentedViewController:self viewControllerAtIndex:self.currentViewControllerIndex];
     [currentViewController removeFromParentViewController];
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self didMoveToParentViewController:self];
 }
 
 #pragma mark - Target Action
 
-- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender
+- (void)handleSwipeGestureRight:(UISwipeGestureRecognizer *)sender
 {
-    switch (sender.direction) {
-        case UISwipeGestureRecognizerDirectionLeft:
-        {
-            if (self.currentViewControllerIndex + 1 != self.segmentedControl.numberOfSegments - 1) {
-                self.currentViewControllerIndex++;
-            }
-        }
-        case UISwipeGestureRecognizerDirectionRight:
-        {
-            if (self.currentViewControllerIndex - 1 != 0) {
-                self.currentViewControllerIndex--;
-            }
-        }
-            
-        default:
-            break;
+    if (_currentViewControllerIndex - 1 != -1) {
+        [self.segmentedControl setSelectedSegmentIndex:_currentViewControllerIndex - 1];
+        [self.segmentedControl sendActionsForControlEvents:UIControlEventValueChanged];
+    }
+}
+
+- (void)handleSwipeGestureLeft:(UISwipeGestureRecognizer *)sender
+{
+    if (_currentViewControllerIndex + 1 != self.segmentedControl.numberOfSegments) {
+        [self.segmentedControl setSelectedSegmentIndex:_currentViewControllerIndex + 1];
+        [self.segmentedControl sendActionsForControlEvents:UIControlEventValueChanged];
     }
 }
 
@@ -180,7 +179,7 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 
 #pragma mark - Setters
 
-- (void)setCurrentViewControllerIndex:(NSUInteger)currentViewControllerIndex
+- (void)setCurrentViewControllerIndex:(NSInteger)currentViewControllerIndex
 {
     _currentViewControllerIndex = currentViewControllerIndex;
     [self.segmentedControl setSelectedSegmentIndex:_currentViewControllerIndex];
@@ -192,6 +191,21 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     _dataSource = dataSource;
     [self reload];
     self.currentViewControllerIndex = 0;
+}
+
+- (void)setSwipeGestureEnabled:(BOOL)swipeGestureEnabled
+{
+    _swipeGestureEnabled = swipeGestureEnabled;
+    
+    if (_swipeGestureEnabled) {
+        _swipeGestureRecognizerLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGestureLeft:)];
+        _swipeGestureRecognizerLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+        _swipeGestureRecognizerRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGestureRight:)];
+        _swipeGestureRecognizerRight.direction = UISwipeGestureRecognizerDirectionRight;
+    } else {
+        _swipeGestureRecognizerRight = nil;
+        _swipeGestureRecognizerLeft = nil;
+    }
 }
 
 @end

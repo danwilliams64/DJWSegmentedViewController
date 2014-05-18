@@ -22,9 +22,12 @@
     // Override point for customization after application launch.
     
     DJWSegmentedViewController *viewController = [[DJWSegmentedViewController alloc] initWithControlPlacement:DJWSegmentedViewControllerControlPlacementNavigationBar];
+    viewController.swipeGestureEnabled = YES;
+    viewController.segmentedControl.tintColor = [UIColor redColor];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
     viewController.dataSource = self;
+    [viewController.segmentedControl setWidth:100.0 forSegmentAtIndex:0];
 
     self.window.rootViewController = nav;
     self.window.backgroundColor = [UIColor whiteColor];
@@ -33,12 +36,12 @@
     return YES;
 }
 
-- (NSUInteger)numberOfViewControllers
+- (NSInteger)numberOfViewControllers
 {
     return 3;
 }
 
-- (UIViewController *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController viewControllerAtIndex:(NSUInteger)index
+- (UIViewController *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController viewControllerAtIndex:(NSInteger)index
 {
     TestViewController *viewController = [TestViewController new];
     switch (index) {
@@ -62,7 +65,7 @@
     return viewController;
 }
 
-- (NSString *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController segmentedControlTitleForIndex:(NSUInteger)index
+- (NSString *)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController segmentedControlTitleForIndex:(NSInteger)index
 {
     switch (index) {
         case 0:
