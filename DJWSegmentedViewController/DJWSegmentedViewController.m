@@ -35,6 +35,11 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     return self;
 }
 
+- (BOOL)shouldAutomaticallyForwardRotationMethods
+{
+    return YES;
+}
+
 #pragma mark - Public
 
 - (void)setCurrentViewControllerIndex:(NSInteger)currentViewControllerIndex animated:(BOOL)animated
@@ -106,7 +111,8 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     
     [self addChildViewController:viewController];
     UIView *viewControllerView = viewController.view;
-    CGRect startFrame = CGRectOffset(viewControllerView.frame, (direction == DJWSegmentedViewControllerTransitionDirectionLeft) ? CGRectGetWidth(viewControllerView.frame) : -CGRectGetWidth(viewControllerView.frame), 0);
+    if (previousSnapShot) viewControllerView.frame = CGRectMake(0, 0, CGRectGetWidth(previousSnapShot.frame), CGRectGetHeight(previousSnapShot.frame));
+    CGRect startFrame = CGRectOffset(viewControllerView.frame, (direction == DJWSegmentedViewControllerTransitionDirectionLeft) ? CGRectGetWidth(viewControllerView.bounds) : -CGRectGetWidth(viewControllerView.bounds), 0);
     viewControllerView.frame = startFrame;
     [self.view addSubview:viewControllerView];
     [self addSwipeGestureRecognizersToView:viewControllerView];
@@ -131,7 +137,7 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
         [UIView animateWithDuration:self.animatedViewControllerTransitionDuration delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             CGFloat originX = (direction == DJWSegmentedViewControllerTransitionDirectionLeft) ? view.frame.origin.x - xOffset : view.frame.origin.x + xOffset;
-            view.frame = CGRectMake(originX, view.frame.origin.y, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame));
+            view.frame = CGRectMake(originX, view.frame.origin.y, CGRectGetWidth(view.bounds), CGRectGetHeight(view.bounds));
         } completion:^(BOOL finished) {
             if (callback) {
                 callback();
@@ -254,6 +260,8 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 }
 
 @end
+
+#pragma mark - Categories
 
 @implementation UIViewController (DJWSegmentedViewController)
 

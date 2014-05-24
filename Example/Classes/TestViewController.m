@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     _label = [UILabel new];
+    _label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     [self.view addSubview:_label];
     
     _jumpToVCButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -37,6 +38,7 @@
     [_jumpToVCButton setTitle:@"Move to Three." forState:UIControlStateNormal];
     [_jumpToVCButton sizeToFit];
     _jumpToVCButton.center = CGPointMake(self.view.center.x, self.view.center.y + 50);
+    _jumpToVCButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     [_jumpToVCButton addTarget:self action:@selector(jumpToThirdViewController:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -59,7 +61,7 @@
     _string = string;
     self.label.text = _string;
     [self.label sizeToFit];
-    _label.center = self.view.center;
+    self.label.center = self.view.center;
 }
 
 @end

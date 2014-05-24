@@ -7,8 +7,9 @@
 //
 
 @import UIKit;
-
 @class DJWSegmentedViewController;
+
+#pragma mark - DataSource and Delegate Protocols
 
 @protocol DJWSegmentedViewControllerDataSource <NSObject>
 
@@ -40,7 +41,9 @@
 @end
 
 @protocol DJWSegmentedViewControllerDelegate <NSObject>
+
 @optional
+
 /**
  *  Notifies the delegate that the DJWSegmentedViewController did move to displaying the view controller at index specified.
  *
@@ -51,24 +54,24 @@
 
 @end
 
+#pragma mark - ENUMs
+
 typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
 {
     DJWSegmentedViewControllerControlPlacementNavigationBar,
     DJWSegmentedViewControllerControlPlacementToolbar
 };
 
-@interface DJWSegmentedViewController : UIViewController
+#pragma mark - Public Interface
 
-#pragma mark - Properties
+@interface DJWSegmentedViewController : UIViewController
 
 @property (nonatomic, weak) id <DJWSegmentedViewControllerDataSource> dataSource;
 @property (nonatomic, weak) id <DJWSegmentedViewControllerDelegate> delegate;
-
 /**
  *  Access to the segmentedControl to provide custom styling. Not set until a dataSource is set, and the number of segments is greater than 0. (read-only)
  */
 @property (nonatomic, strong, readonly) UISegmentedControl *segmentedControl;
-
 /**
  *  The displayed view controller's index.
  */
@@ -81,12 +84,10 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
  *  Enables the viewController transition animation. Defaults to `YES`.
  */
 @property (nonatomic, assign) BOOL animatedViewControllerTransitionAnimationEnabled;
-
 /**
  *  The duration that the animation takes to complete. Defaults to `0.6`.
  */
 @property (nonatomic, assign) NSTimeInterval animatedViewControllerTransitionDuration;
-
 
 #pragma mark - Instance Methods
 
@@ -98,7 +99,6 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
  *  @return Instance of DJWSegmentedViewController
  */
 - (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement;
-
 /**
  *  Set the current view controller for display, optionally, this transition can be animated.
  *
@@ -106,13 +106,14 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
  *  @param animated                   Animate the transition.
  */
 - (void)setCurrentViewControllerIndex:(NSInteger)currentViewControllerIndex animated:(BOOL)animated;
-
 /**
  *  Reloads the view controller, and returns the `currentViewControllerIndex` value to `0`.
  */
 - (void)reload;
 
 @end
+
+#pragma mark - Categories
 
 @interface UIViewController (DJWSegmentedViewController)
 
