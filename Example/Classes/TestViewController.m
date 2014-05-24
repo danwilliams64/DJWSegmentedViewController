@@ -51,7 +51,7 @@
 
 - (void)jumpToThirdViewController:(UIButton *)sender
 {
-    [self.segmentedViewController setCurrentViewControllerIndex:1 animated:NO];
+    [self.segmentedViewController setCurrentViewControllerIndex:1 animated:YES];
 }
 
 #pragma mark - Setters

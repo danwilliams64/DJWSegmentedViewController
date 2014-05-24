@@ -233,6 +233,11 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     return _animatedViewControllerTransitionDuration;
 }
 
+- (UIViewController *)currentViewController
+{
+    return [self.dataSource DJWSegmentedViewController:self viewControllerAtIndex:self.currentViewControllerIndex];
+}
+
 #pragma mark - Setters
 
 - (void)setCurrentViewControllerIndex:(NSInteger)currentViewControllerIndex

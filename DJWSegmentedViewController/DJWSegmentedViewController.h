@@ -89,6 +89,8 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
  */
 @property (nonatomic, assign) NSTimeInterval animatedViewControllerTransitionDuration;
 
+@property (nonatomic, weak) UIViewController *currentViewController;
+
 #pragma mark - Instance Methods
 
 /**
