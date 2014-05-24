@@ -65,7 +65,7 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
 @property (nonatomic, weak) id <DJWSegmentedViewControllerDelegate> delegate;
 
 /**
- *  Access to the segmentedControl to provide custom styling. Not set until a dataSource is set, and the number of segments is greater than 0. (read-only).
+ *  Access to the segmentedControl to provide custom styling. Not set until a dataSource is set, and the number of segments is greater than 0. (read-only)
  */
 @property (nonatomic, strong, readonly) UISegmentedControl *segmentedControl;
 
@@ -100,8 +100,25 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
 - (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement;
 
 /**
+ *  Set the current view controller for display, optionally, this transition can be animated.
+ *
+ *  @param currentViewControllerIndex Index of new view controler to display.
+ *  @param animated                   Animate the transition.
+ */
+- (void)setCurrentViewControllerIndex:(NSInteger)currentViewControllerIndex animated:(BOOL)animated;
+
+/**
  *  Reloads the view controller, and returns the `currentViewControllerIndex` value to `0`.
  */
 - (void)reload;
+
+@end
+
+@interface UIViewController (DJWSegmentedViewController)
+
+/**
+ *  If this view controller has been shown from a DJWSegmentedViewController, return it. Otherwise, this is set to nil. (read-only)
+ */
+@property (nonatomic, strong, readonly) DJWSegmentedViewController *segmentedViewController;
 
 @end

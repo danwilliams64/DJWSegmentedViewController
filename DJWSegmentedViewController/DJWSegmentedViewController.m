@@ -37,6 +37,14 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 
 #pragma mark - Public
 
+- (void)setCurrentViewControllerIndex:(NSInteger)currentViewControllerIndex animated:(BOOL)animated
+{
+    if (_currentViewControllerIndex == currentViewControllerIndex) return;
+    if (currentViewControllerIndex >= 0 && currentViewControllerIndex < [self.dataSource numberOfViewControllers]) {
+        [self setCurrentViewControllerIndex:currentViewControllerIndex];
+    }
+}
+
 - (void)reload
 {
     [self.segmentedControl removeAllSegments];
@@ -243,6 +251,15 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
         _swipeGestureRecognizerRight = nil;
         _swipeGestureRecognizerLeft = nil;
     }
+}
+
+@end
+
+@implementation UIViewController (DJWSegmentedViewController)
+
+- (DJWSegmentedViewController *)segmentedViewController
+{
+    return ([self.parentViewController isKindOfClass:[DJWSegmentedViewController class]]) ? (DJWSegmentedViewController *)self.parentViewController : nil;
 }
 
 @end

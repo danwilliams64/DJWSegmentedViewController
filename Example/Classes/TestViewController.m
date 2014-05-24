@@ -7,10 +7,12 @@
 //
 
 #import "TestViewController.h"
+#import "DJWSegmentedViewController.h"
 
 @interface TestViewController ()
 
 @property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UIButton *jumpToVCButton;
 
 @end
 
@@ -20,8 +22,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _label = [UILabel new];
-        [self.view addSubview:_label];
     }
     return self;
 }
@@ -29,13 +29,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _label = [UILabel new];
+    [self.view addSubview:_label];
+    
+    _jumpToVCButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:_jumpToVCButton];
+    [_jumpToVCButton setTitle:@"Move to Three." forState:UIControlStateNormal];
+    [_jumpToVCButton sizeToFit];
+    _jumpToVCButton.center = CGPointMake(self.view.center.x, self.view.center.y + 50);
+    [_jumpToVCButton addTarget:self action:@selector(jumpToThirdViewController:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)dealloc
 {
     NSLog(@"TestViewController deallocated");
 }
+
+#pragma mark - Target/Action
+
+- (void)jumpToThirdViewController:(UIButton *)sender
+{
+    [self.segmentedViewController setCurrentViewControllerIndex:2 animated:YES];
+}
+
+#pragma mark - Setters
 
 - (void)setString:(NSString *)string
 {
