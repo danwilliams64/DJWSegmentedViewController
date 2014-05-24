@@ -35,7 +35,7 @@
     
     _jumpToVCButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:_jumpToVCButton];
-    [_jumpToVCButton setTitle:@"Move to Three." forState:UIControlStateNormal];
+    [_jumpToVCButton setTitle:@"Move to Two." forState:UIControlStateNormal];
     [_jumpToVCButton sizeToFit];
     _jumpToVCButton.center = CGPointMake(self.view.center.x, self.view.center.y + 50);
     _jumpToVCButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
@@ -51,7 +51,7 @@
 
 - (void)jumpToThirdViewController:(UIButton *)sender
 {
-    [self.segmentedViewController setCurrentViewControllerIndex:2 animated:YES];
+    [self.segmentedViewController setCurrentViewControllerIndex:1 animated:NO];
 }
 
 #pragma mark - Setters

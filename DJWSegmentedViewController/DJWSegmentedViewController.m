@@ -46,7 +46,12 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 {
     if (_currentViewControllerIndex == currentViewControllerIndex) return;
     if (currentViewControllerIndex >= 0 && currentViewControllerIndex < [self.dataSource numberOfViewControllers]) {
-        [self setCurrentViewControllerIndex:currentViewControllerIndex];
+        if (!animated) {
+            [UIView setAnimationsEnabled:NO];
+        }
+        [self.segmentedControl setSelectedSegmentIndex:currentViewControllerIndex];
+        [self.segmentedControl sendActionsForControlEvents:UIControlEventValueChanged];
+        [UIView setAnimationsEnabled:YES];
     }
 }
 
