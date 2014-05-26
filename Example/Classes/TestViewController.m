@@ -42,11 +42,6 @@
     [_jumpToVCButton addTarget:self action:@selector(jumpToThirdViewController:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)dealloc
-{
-    NSLog(@"TestViewController deallocated");
-}
-
 #pragma mark - Target/Action
 
 - (void)jumpToThirdViewController:(UIButton *)sender
