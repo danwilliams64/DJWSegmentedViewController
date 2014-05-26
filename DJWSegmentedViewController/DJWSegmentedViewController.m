@@ -102,6 +102,10 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 
 - (void)addViewControllerViewAsViewAtIndex:(NSInteger)index
 {
+    if ([self.delegate respondsToSelector:@selector(DJWSegmentedViewController:willMoveToViewControllerAtIndex:)]) {
+        [self.delegate DJWSegmentedViewController:self willMoveToViewControllerAtIndex:index];
+    }
+    
     UIView *previousSnapShot = [[self.view.subviews firstObject] snapshotViewAfterScreenUpdates:NO];
     [self removePreviousViewController];
     [self.view addSubview:previousSnapShot];
@@ -131,7 +135,9 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     
     [self animateViewsControllersForInitialDisplay:@[previousSnapShot, viewControllerView] inDirection:direction withXOffset:CGRectGetWidth(viewControllerView.frame) withCompletionCallback:^{
         [previousSnapShot removeFromSuperview];
-        [self.delegate DJWSegmentedViewController:self didMoveToViewControllerAtIndex:index];
+        if ([self.delegate respondsToSelector:@selector(DJWSegmentedViewController:didMoveToViewControllerAtIndex:)]) {
+            [self.delegate DJWSegmentedViewController:self didMoveToViewControllerAtIndex:index];
+        }
     }];
     
     [UIView setAnimationsEnabled:YES];

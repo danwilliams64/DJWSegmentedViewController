@@ -13,6 +13,7 @@
 
 @protocol DJWSegmentedViewControllerDataSource <NSObject>
 
+@required
 /**
  *  The number of viewControllers the view is responsible for managing.
  */
@@ -45,12 +46,20 @@
 @optional
 
 /**
- *  Notifies the delegate that the DJWSegmentedViewController did move to displaying the view controller at index specified.
+ *  Notifies the delegate that the DJWSegmentedViewController did move to display the view controller at index specified.
  *
  *  @param segmentedViewController The DJWSegmentedViewController
  *  @param newIndex                Index of the viewController now being shown.
  */
 - (void)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController didMoveToViewControllerAtIndex:(NSInteger)newIndex;
+
+/**
+ *  Notifies the delegate that the DJWSegmentedViewController will move to dislay the view controller at the specified index.
+ *
+ *  @param segmentedViewController The DJWSegmentedViewController
+ *  @param newIndex                Index of the viewController about to be shown.
+ */
+- (void)DJWSegmentedViewController:(DJWSegmentedViewController *)segmentedViewController willMoveToViewControllerAtIndex:(NSInteger)newIndex;
 
 @end
 
