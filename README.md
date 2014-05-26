@@ -12,7 +12,7 @@ Ideal for use in applications that utilise a tabBarController, and is similar to
 
 ## Usage
 
-Create a new instance of DJWSegmentedViewController, utilising the designated initialiser, ```- (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement;```, and then set its dataSource, and optionally, its delegate.
+Create a new instance of DJWSegmentedViewController, utilising the designated initialiser, ```objective-c - (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement;```, and then set its dataSource, and optionally, its delegate.
 
 ### Creation
 
