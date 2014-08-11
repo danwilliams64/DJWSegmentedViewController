@@ -15,7 +15,9 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 
 @interface DJWSegmentedViewController ()
 @property (nonatomic, strong, readwrite) UISegmentedControl *segmentedControl;
+@property (nonatomic, strong, readwrite) UIPageControl *pageControl;
 @property (nonatomic, assign) DJWSegmentedViewControllerControlPlacement placement;
+@property (nonatomic, assign) DJWSegmentedViewControllerControlType type;
 @property (nonatomic, assign, readwrite) NSInteger currentViewControllerIndex;
 @property (nonatomic, assign) NSInteger previousViewControllerIndex;
 @property (nonatomic, strong) UISwipeGestureRecognizer *swipeGestureRecognizerLeft;
@@ -26,8 +28,14 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 
 - (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement
 {
+    return [self initWithControlPlacement:placement controlType:DJWSegmentedViewControllerControlTypeSegmentedControl];
+}
+
+- (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement controlType:(DJWSegmentedViewControllerControlType)controlType
+{
     if (self = [super init]) {
         _placement = placement;
+        _type = controlType;
         _animatedViewControllerTransitionAnimationEnabled = YES;
         _swipeGestureEnabled = NO;
         self.view.backgroundColor = [UIColor blackColor];
@@ -63,22 +71,24 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     for (NSInteger i = 0; i < numberOfViewControllers; i++) {
         NSString *title = [self.dataSource DJWSegmentedViewController:self segmentedControlTitleForIndex:i];
         [self.segmentedControl insertSegmentWithTitle:title atIndex:i animated:NO];
+        [self.segmentedControl sizeToFit];
+        [self.segmentedControl setSelectedSegmentIndex:0];
+        self.pageControl.numberOfPages++;
+        [self.pageControl sizeToFit];
     }
     
-    [self.segmentedControl sizeToFit];
-    [self.segmentedControl setSelectedSegmentIndex:0];
-    
+
     switch (self.placement) {
         case DJWSegmentedViewControllerControlPlacementNavigationBar:
         {
-            self.navigationItem.titleView = self.segmentedControl;
+            self.navigationItem.titleView = (self.type == DJWSegmentedViewControllerControlTypeSegmentedControl) ? self.segmentedControl : self.pageControl;
             break;
         }
         case DJWSegmentedViewControllerControlPlacementToolbar:
         {
             UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
             self.toolbarItems = @[flexibleSpace,
-                                  [[UIBarButtonItem alloc] initWithCustomView:self.segmentedControl],
+                                  [[UIBarButtonItem alloc] initWithCustomView:(self.type == DJWSegmentedViewControllerControlTypeSegmentedControl) ? self.segmentedControl : self.pageControl],
                                   flexibleSpace];
             break;
         }
@@ -231,6 +241,14 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
     return _segmentedControl;
 }
 
+- (UIPageControl *)pageControl
+{
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
+    }
+    return _pageControl;
+}
+
 - (NSTimeInterval)animatedViewControllerTransitionDuration
 {
     if (!_animatedViewControllerTransitionDuration) {
@@ -250,6 +268,7 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 {
     _currentViewControllerIndex = currentViewControllerIndex;
     [self.segmentedControl setSelectedSegmentIndex:_currentViewControllerIndex];
+    self.pageControl.currentPage = _currentViewControllerIndex;
     [self addViewControllerViewAsViewAtIndex:_currentViewControllerIndex];
 }
 

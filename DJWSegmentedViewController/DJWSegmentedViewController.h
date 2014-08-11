@@ -71,6 +71,12 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
     DJWSegmentedViewControllerControlPlacementToolbar
 };
 
+typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlType)
+{
+    DJWSegmentedViewControllerControlTypeSegmentedControl,
+    DJWSegmentedViewControllerControlTypePageControl
+};
+
 #pragma mark - Public Interface
 
 @interface DJWSegmentedViewController : UIViewController
@@ -81,6 +87,10 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
  *  Access to the segmentedControl to provide custom styling. Not set until a dataSource is set, and the number of segments is greater than 0. (read-only)
  */
 @property (nonatomic, strong, readonly) UISegmentedControl *segmentedControl;
+/**
+ *  Access to the pageControl to provide custom styling. Not set until a dataSource is set and the number of segments is greater than 0. (read-only)
+ */
+@property (nonatomic, strong, readonly) UIPageControl *pageControl;
 /**
  *  The displayed view controller's index.
  */
@@ -110,6 +120,16 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlPlacement)
  *  @return Instance of DJWSegmentedViewController
  */
 - (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement;
+
+/**
+ *  Instantiates a new instance of DJWSegmentedViewController with the specified segmented control and segmented control placement. The instance should be displayed within a Navigation controller.
+ *
+ *  @param placement   See DJWSegmentedViewControllerPlacement ENUM for possible values.
+ *  @param controlType See DJWSegmentedViewControllerControlType ENUM for possible values.
+ *
+ *  @return Instance of DJWSegmentedViewController
+ */
+- (instancetype)initWithControlPlacement:(DJWSegmentedViewControllerControlPlacement)placement controlType:(DJWSegmentedViewControllerControlType)controlType;
 /**
  *  Set the current view controller for display, optionally, this transition can be animated.
  *
