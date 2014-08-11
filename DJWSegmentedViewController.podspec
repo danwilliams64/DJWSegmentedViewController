@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "DJWSegmentedViewController"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A segmentedControl based container view controller that manages the display of a group of view controllers."
 
   s.description  = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/danielwilliams"
 
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/danwilliams64/DJWSegmentedViewController.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/danwilliams64/DJWSegmentedViewController.git", :tag => "0.0.2" }
 
 
   s.source_files  = "DJWSegmentedViewController"
