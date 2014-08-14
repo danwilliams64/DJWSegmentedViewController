@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    DJWSegmentedViewController *viewController = [[DJWSegmentedViewController alloc] initWithControlPlacement:DJWSegmentedViewControllerControlPlacementToolbar controlType:DJWSegmentedViewControllerControlTypePageControl];
+    DJWSegmentedViewController *viewController = [[DJWSegmentedViewController alloc] initWithControlPlacement:DJWSegmentedViewControllerControlPlacementToolbar controlType:DJWSegmentedViewControllerControlTypeSegmentedControl];
     viewController.swipeGestureEnabled = YES;
     viewController.dataSource = self;
     

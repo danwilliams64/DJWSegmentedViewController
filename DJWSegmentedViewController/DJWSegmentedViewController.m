@@ -16,6 +16,8 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
 @interface DJWSegmentedViewController ()
 @property (nonatomic, strong, readwrite) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong, readwrite) UIPageControl *pageControl;
+@property (nonatomic, strong, readwrite) UIBarButtonItem *backBarButtonItem;
+@property (nonatomic, strong, readwrite) UIBarButtonItem *forwardBarButtonItem;
 @property (nonatomic, assign) DJWSegmentedViewControllerControlPlacement placement;
 @property (nonatomic, assign) DJWSegmentedViewControllerControlType type;
 @property (nonatomic, assign, readwrite) NSInteger currentViewControllerIndex;
@@ -86,10 +88,19 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerTransitionDirection) {
         }
         case DJWSegmentedViewControllerControlPlacementToolbar:
         {
-            UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-            self.toolbarItems = @[flexibleSpace,
+            if (_type == DJWSegmentedViewControllerControlTypePageControl) {
+                self.backBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(handleSwipeGestureRight:)];
+                self.forwardBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(handleSwipeGestureLeft:)];
+            } else {
+                self.backBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+                self.forwardBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+
+            }
+            self.toolbarItems = @[self.backBarButtonItem,
+                                  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                                   [[UIBarButtonItem alloc] initWithCustomView:(self.type == DJWSegmentedViewControllerControlTypeSegmentedControl) ? self.segmentedControl : self.pageControl],
-                                  flexibleSpace];
+                                  [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                  self.forwardBarButtonItem];
             break;
         }
         default:

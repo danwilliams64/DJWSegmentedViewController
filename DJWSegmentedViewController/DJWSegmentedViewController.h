@@ -110,6 +110,15 @@ typedef NS_ENUM(NSUInteger, DJWSegmentedViewControllerControlType)
 
 @property (nonatomic, weak) UIViewController *currentViewController;
 
+/**
+ *  Set if using a pagerControl instead of the segmentedControl.
+ */
+@property (nonatomic, strong, readonly) UIBarButtonItem *backBarButtonItem;
+/**
+ *  Set if using a pagerControl instead of the segmentedControl.
+ */
+@property (nonatomic, strong, readonly) UIBarButtonItem *forwardBarButtonItem;
+
 #pragma mark - Instance Methods
 
 /**
