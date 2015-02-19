@@ -50,7 +50,7 @@ Both delegate methods are optional:
 
 ## Installation
 
-Simply add `DJWSegmentedViewController` to your Podfile if you're using Cocoapods. Alternatively, add `DJWActionSheet.h` and `DJWActionSheet.m` to your project. Included in this repository is a demo application, showing the project in action.
+Simply add `DJWSegmentedViewController` to your Podfile if you're using Cocoapods. Alternatively, add `DJWSegmentedViewController.h` and `DJWSegmentedViewController.m` to your project. Included in this repository is a demo application, showing the project in action.
 
 # License
 
