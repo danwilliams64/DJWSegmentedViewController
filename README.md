@@ -1,10 +1,10 @@
 # DJWSegmentedViewController
 
-A container view controller that manages multiple view controllers, which are swapped between using a segmented control. 
+A container view controller that manages multiple view controllers, which are swapped between using a segmented control.
 
 The segmented control can be placed either in the navigation bar, as a navigation controller's titleView property, or alternatively, in the toolbar.
 
-Ideal for use in applications that utilise a tabBarController, and is similar to the approach Apple uses in it's App Store app.
+Ideal for use in applications that would otherwise utilise a tabBarController, and is similar to the approach Apple uses in its App Store app.
 
 ## Demo
 
